@@ -57,6 +57,12 @@
         "unordered_map": "cpp",
         "vector": "cpp",
         "xhash": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "algorithm": "cpp",
+        "condition_variable": "cpp",
+        "deque": "cpp",
+        "functional": "cpp",
+        "optional": "cpp",
+        "queue": "cpp"
     }
 }
