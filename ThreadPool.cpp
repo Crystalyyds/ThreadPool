@@ -1,6 +1,6 @@
 #include "ThreadPool.h"
 #include <mutex>
-ThreadPool::ThreadPool(size_t num)
+ThreadPool::ThreadPool(size_t num) : stop(false)
 {
     for (size_t i = 0; i < num; i++)
     {
@@ -13,7 +13,7 @@ ThreadPool::ThreadPool(size_t num)
                                          std::unique_lock<std::mutex> lock(queueMtx);
                                          condition.wait(lock, [this]()
                                                         {
-                                                            return stop || tasks.empty();
+                                                            return stop || !tasks.empty();
                                                         });
                                         if (stop&&tasks.empty()) return;
                                         task = std::move(tasks.front());
